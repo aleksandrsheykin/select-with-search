@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap-select test page</title>
+
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-select.css">
+
+  <style>
+    body {
+      padding: 70px;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-select.js"></script>
+</head>
+<body>
+
+	<select id="tokens" class="selectpicker" data-live-search="true">
+		<option data-tokens="first">I actually am called "first"</option>
+		<option data-tokens="second">And me "second"</option>
+		<option data-tokens="last">I am "last"</option>
+	</select>
+	
+	<button type="button" class="btn btn-success" id="expensesBtnDel" name="expensesBtnDel">Add select</button>
+	</br></br>
+	<div id="thisCopy" style="width: 300px; height: 50px; background: #ABC;"></div>
+
+<script>
+	$(document).ready(function () {
+
+		var mySelect = $('#first-disabled2');
+		$('#special').on('click', function () {
+			mySelect.find('option:selected').prop('disabled', true);
+			mySelect.selectpicker('refresh');
+		});
+
+		$('#expensesBtnDel').click(function() {
+			CopySelect();
+		});
+
+	});
+	
+	function CopySelect() {
+		$('#thisCopy').append( $('#tokens').clone() );
+		
+	}
+</script>
+</body>
+</html>
